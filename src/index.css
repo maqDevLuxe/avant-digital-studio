@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 186 100% 50%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 310 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 310 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 186 100% 50%;
+
+    --radius: 0.5rem;
+
+    --font-display: 'Clash Display', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --neon-glow: 0 0 40px hsl(186 100% 50% / 0.3), 0 0 80px hsl(186 100% 50% / 0.1);
+    --magenta-glow: 0 0 40px hsl(310 100% 55% / 0.3), 0 0 80px hsl(310 100% 55% / 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(186 100% 50%), hsl(186 80% 70%));
+  }
+
+  .text-gradient-magenta {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(310 100% 55%), hsl(330 100% 70%));
+  }
+
+  .text-gradient-mixed {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(186 100% 50%), hsl(310 100% 55%));
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, hsl(186 100% 50%), hsl(310 100% 55%)) 1;
+  }
+
+  .glow-cyan {
+    box-shadow: var(--neon-glow);
+  }
+
+  .glow-magenta {
+    box-shadow: var(--magenta-glow);
+  }
+
+  .mask-text-reveal {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 4%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(186 100% 50% / 0.3);
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: hsl(186 100% 50% / 0.3);
+  color: hsl(0 0% 100%);
+}
